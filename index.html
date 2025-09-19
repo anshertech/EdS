@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explosão de Sabores - Lanchonete</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>    
+</head>
+<body class="bg-gradient-to-br from-orange-50 to-red-50 min-h-screen">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-6 shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="text-4xl">🍔</div>
+                    <div>
+                        <h1 class="text-3xl font-bold">Explosão de Sabores</h1>
+                        <p class="text-purple-200">Delícias que explodem na sua boca!</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button onclick="openCart()" class="bg-white text-purple-600 px-4 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors flex items-center space-x-2">
+                        <span>🛒</span>
+                        <span>Carrinho</span>
+                        <span id="cartCount" class="bg-red-500 text-white rounded-full px-2 py-1 text-xs">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-12 text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">Bem-vindo à Nossa Lanchonete!</h2>
+            <p class="text-xl text-gray-600 mb-8">Descubra sabores únicos que vão explodir seu paladar</p>
+            <div class="pulse-animation inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-3 rounded-full font-semibold text-lg shadow-lg">
+                ✨ Peça Já e Saboreie! ✨
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="py-12" id="mainProducts">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">Nossos Produtos</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                <!-- Açaí -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer" onclick="selectCategory('acai')">
+                    <div class="bg-gradient-to-br from-purple-500 to-purple-700 p-6 text-center">
+                        <div class="text-6xl mb-3">🍇</div>
+                        <h4 class="text-xl font-bold text-white">Açaí</h4>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 text-sm">Açaí cremoso com frutas frescas e granola crocante</p>
+                        <div class="mt-3 text-lg font-bold text-purple-600">A partir de R$ 8,90</div>
+                    </div>
+                </div>
+
+                <!-- Salgadinhos -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer" onclick="selectCategory('salgadinhos')">
+                    <div class="bg-gradient-to-br from-yellow-500 to-orange-500 p-6 text-center">
+                        <div class="text-6xl mb-3">🥟</div>
+                        <h4 class="text-xl font-bold text-white">Salgadinhos</h4>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 text-sm">Coxinhas, pastéis e risoles quentinhos e crocantes</p>
+                        <div class="mt-3 text-lg font-bold text-orange-600">A partir de R$ 3,50</div>
+                    </div>
+                </div>
+
+                <!-- Batata Frita -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer" onclick="selectCategory('batata')">
+                    <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 p-6 text-center">
+                        <div class="text-6xl mb-3">🍟</div>
+                        <h4 class="text-xl font-bold text-white">Batata Frita</h4>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 text-sm">Batatas douradas e crocantes com temperos especiais</p>
+                        <div class="mt-3 text-lg font-bold text-yellow-600">A partir de R$ 12,90</div>
+                    </div>
+                </div>
+
+                <!-- Bolos -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer" onclick="selectCategory('bolos')">
+                    <div class="bg-gradient-to-br from-pink-500 to-red-500 p-6 text-center">
+                        <div class="text-6xl mb-3">🎂</div>
+                        <h4 class="text-xl font-bold text-white">Bolos</h4>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 text-sm">Bolos caseiros de chocolate, cenoura e frutas vermelhas</p>
+                        <div class="mt-3 text-lg font-bold text-pink-600">A partir de R$ 6,90</div>
+                    </div>
+                </div>
+
+                <!-- Sucos -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer" onclick="selectCategory('sucos')">
+                    <div class="bg-gradient-to-br from-green-500 to-green-700 p-6 text-center">
+                        <div class="text-6xl mb-3">🧃</div>
+                        <h4 class="text-xl font-bold text-white">Sucos</h4>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 text-sm">Sucos naturais de frutas frescas e vitaminas nutritivas</p>
+                        <div class="mt-3 text-lg font-bold text-green-600">A partir de R$ 5,90</div>
+                    </div>
+                </div>
+
+                <!-- Empadão -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer" onclick="selectCategory('empadao')">
+                    <div class="bg-gradient-to-br from-amber-500 to-orange-600 p-6 text-center">
+                        <div class="text-6xl mb-3">🥧</div>
+                        <h4 class="text-xl font-bold text-white">Empadão</h4>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 text-sm">Empadão caseiro com recheios variados e massa dourada</p>
+                        <div class="mt-3 text-lg font-bold text-amber-600">A partir de R$ 15,90</div>
+                    </div>
+                </div>
+
+                <!-- Sorvete -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer" onclick="selectCategory('sorvete')">
+                    <div class="bg-gradient-to-br from-blue-400 to-cyan-500 p-6 text-center">
+                        <div class="text-6xl mb-3">🍦</div>
+                        <h4 class="text-xl font-bold text-white">Sorvete</h4>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 text-sm">Sorvetes cremosos de diversos sabores e coberturas</p>
+                        <div class="mt-3 text-lg font-bold text-blue-600">A partir de R$ 4,90</div>
+                    </div>
+                </div>
+
+                <!-- Torta -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer" onclick="selectCategory('torta')">
+                    <div class="bg-gradient-to-br from-rose-500 to-pink-600 p-6 text-center">
+                        <div class="text-6xl mb-3">🍰</div>
+                        <h4 class="text-xl font-bold text-white">Torta</h4>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 text-sm">Tortas doces e salgadas feitas com ingredientes frescos</p>
+                        <div class="mt-3 text-lg font-bold text-rose-600">A partir de R$ 18,90</div>
+                    </div>
+                </div>
+
+                <!-- Pudim -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer" onclick="selectCategory('pudim')">
+                    <div class="bg-gradient-to-br from-yellow-500 to-amber-500 p-6 text-center">
+                        <div class="text-6xl mb-3">🍮</div>
+                        <h4 class="text-xl font-bold text-white">Pudim</h4>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 text-sm">Pudim de leite condensado cremoso com calda de caramelo</p>
+                        <div class="mt-3 text-lg font-bold text-amber-600">A partir de R$ 7,90</div>
+                    </div>
+                </div>
+
+                <!-- Pavê -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer" onclick="selectCategory('pave')">
+                    <div class="bg-gradient-to-br from-indigo-500 to-purple-600 p-6 text-center">
+                        <div class="text-6xl mb-3">🧁</div>
+                        <h4 class="text-xl font-bold text-white">Pavê</h4>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 text-sm">Pavê de chocolate e frutas em camadas irresistíveis</p>
+                        <div class="mt-3 text-lg font-bold text-indigo-600">A partir de R$ 9,90</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Products Modal -->
+    <div id="categoryModal" class="fixed inset-0 bg-black bg-opacity-50 modal-overlay hidden items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b flex justify-between items-center">
+                <h3 class="text-2xl font-bold" id="categoryTitle">Selecione o Produto</h3>
+                <button onclick="closeCategoryModal()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <div class="p-6">
+                <div id="categoryProducts" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Customization Modal -->
+    <div id="customizationModal" class="fixed inset-0 bg-black bg-opacity-50 modal-overlay hidden items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b flex justify-between items-center">
+                <h3 class="text-2xl font-bold" id="customizationTitle">Personalize seu Produto</h3>
+                <button onclick="closeCustomizationModal()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <div class="p-6" id="customizationContent">
+                <!-- Customization options will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 modal-overlay hidden items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b flex justify-between items-center">
+                <h3 class="text-2xl font-bold">Seu Carrinho</h3>
+                <button onclick="closeCart()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <div class="p-6">
+                <div id="cartItems" class="space-y-4 mb-6">
+                    <!-- Cart items will be loaded here -->
+                </div>
+                <div class="border-t pt-4">
+                    <div class="flex justify-between items-center text-xl font-bold mb-4">
+                        <span>Total:</span>
+                        <span id="cartTotal">R$ 0,00</span>
+                    </div>
+                    <button onclick="proceedToCheckout()" class="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white py-3 rounded-lg font-semibold hover:from-orange-600 hover:to-red-600 transition-colors">
+                        Finalizar Pedido
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="fixed inset-0 bg-black bg-opacity-50 modal-overlay hidden items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b flex justify-between items-center">
+                <h3 class="text-2xl font-bold">Finalizar Pedido</h3>
+                <button onclick="closeCheckout()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <div class="p-6">
+                <form id="checkoutForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Nome Completo</label>
+                        <input type="text" id="customerName" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">WhatsApp</label>
+                        <input type="tel" id="customerPhone" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="(11) 99999-9999">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tipo de Entrega</label>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="radio" name="deliveryType" value="pickup" onchange="toggleDeliveryOptions()" class="mr-2">
+                                <span>Retirada no Local</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="deliveryType" value="delivery" onchange="toggleDeliveryOptions()" class="mr-2">
+                                <span>Entrega</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div id="deliveryOptions" class="hidden space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Endereço</label>
+                            <input type="text" id="customerAddress" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Rua, número, complemento">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Ponto de Referência</label>
+                            <input type="text" id="customerReference" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Ex: Próximo ao mercado, em frente à farmácia...">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Bairro</label>
+                            <select id="customerNeighborhood" onchange="calculateDeliveryFee()" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                                <option value="">Selecione o bairro</option>
+                                <option value="centro" data-fee="3">Centro - R$ 3,00</option>
+                                <option value="jardins" data-fee="5">Jardins - R$ 5,00</option>
+                                <option value="vila-nova" data-fee="4">Vila Nova - R$ 4,00</option>
+                                <option value="centro-sul" data-fee="6">Centro Sul - R$ 6,00</option>
+                                <option value="periferia" data-fee="8">Periferia - R$ 8,00</option>
+                            </select>
+                        </div>
+                        <div id="deliveryFeeDisplay" class="text-sm text-gray-600"></div>
+                    </div>
+                    <div class="border-t pt-4">
+                        <div class="flex justify-between items-center text-lg font-semibold mb-2">
+                            <span>Subtotal:</span>
+                            <span id="checkoutSubtotal">R$ 0,00</span>
+                        </div>
+                        <div id="deliveryFeeRow" class="flex justify-between items-center text-sm text-gray-600 mb-2 hidden">
+                            <span>Taxa de Entrega:</span>
+                            <span id="checkoutDeliveryFee">R$ 0,00</span>
+                        </div>
+                        <div class="flex justify-between items-center text-xl font-bold">
+                            <span>Total Final:</span>
+                            <span id="checkoutTotal">R$ 0,00</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full bg-green-500 text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors flex items-center justify-center space-x-2">
+                        <span>📱</span>
+                        <span>Finalizar no WhatsApp</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h4 class="text-xl font-bold">Explosão de Sabores</h4>
+                    <p class="text-gray-400">Onde cada mordida é uma explosão!</p>
+                </div>
+                <div class="flex space-x-6">
+                    <span class="flex items-center space-x-2">
+                        <span>📍</span>
+                        <span>Rua dos Sabores, 123 - Centro</span>
+                    </span>
+                    <span class="flex items-center space-x-2">
+                        <span>📧</span>
+                        <span>contato@explosaodesabores.com</span>
+                    </span>
+                </div>
+            </div>
+            <div class="mt-6 pt-6 border-t border-gray-700 text-gray-400">
+                <p>&copy; 2024 Explosão de Sabores. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

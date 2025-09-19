@@ -1,0 +1,51 @@
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+            flex: 0 0 48%; /* Ajusta a largura de cada card */
+            margin-bottom: 16px; /* Espaçamento entre linhas */
+        }
+
+        /* Para garantir que os cards se comportem bem em telas pequenas */
+         @media (max-width: 600px) {
+        .card {
+        flex: 0 0 48%; /* Mantém dois cards por linha */
+        }
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .modal-overlay {
+            backdrop-filter: blur(5px);
+        }
+        .success-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            max-width: 300px;
+            font-weight: 600;
+        }
+        .success-message.show {
+            transform: translateX(0);
+        }
