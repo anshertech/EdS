@@ -26,6 +26,7 @@
         .container {
         padding: 8px; /* Reduz o padding em dispositivos móveis */
         }
+    }
 
         .card-hover:hover {
             transform: translateY(-8px);
