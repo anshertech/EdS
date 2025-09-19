@@ -6,20 +6,24 @@
         /* Ajustes para dispositivos móveis */
 @media (max-width: 600px) {
     body {
-        transform: scale(0.9); /* Reduz o tamanho de tudo em 10% */
+        transform: scale(0.7); /* Reduz o tamanho de tudo em 30% */
         transform-origin: top; /* Define a origem da transformação */
+        width: 100%; /* Garante que o body ocupe 100% da largura */
+        overflow-x: hidden; /* Evita rolagem horizontal */
     }
 
     .container-card {
-        padding: 8px; /* Reduz o padding do contêiner */
+        padding: 0; /* Remove padding do contêiner */
+        width: 100%; /* Garante que o contêiner ocupe 100% da largura */
     }
 
     .card-hover {
         margin-bottom: 12px; /* Ajusta o espaçamento entre os cards */
+        flex: 0 0 35%; /* Cada card ocupa 35% da largura */
     }
 
     h1, h2, h3, p {
-        font-size: 90%; /* Ajusta a fonte para 90% do tamanho original */
+        font-size: 80%; /* Ajusta a fonte para 80% do tamanho original */
     }
 }
 
