@@ -2,28 +2,59 @@
         body {
             font-family: 'Poppins', sans-serif;
         }
+
+        /* Ajustes para dispositivos móveis */
+@media (max-width: 600px) {
+    body {
+        transform: scale(0.9); /* Reduz o tamanho de tudo em 10% */
+        transform-origin: top; /* Define a origem da transformação */
+    }
+
+    .container-card {
+        padding: 8px; /* Reduz o padding do contêiner */
+    }
+
+    .card-hover {
+        margin-bottom: 12px; /* Ajusta o espaçamento entre os cards */
+    }
+
+    h1, h2, h3, p {
+        font-size: 90%; /* Ajusta a fonte para 90% do tamanho original */
+    }
+}
+
         .card-hover {
             transition: all 0.3s ease;
-            flex: 0 0 48%; /* Ajusta a largura de cada card */
+            flex: 0 0 50%; /* Ajusta a largura de cada card */
             margin-bottom: 16px; /* Espaçamento entre linhas */
         }
 
         /* Para garantir que os cards se comportem bem em telas pequenas */
          @media (max-width: 600px) {
         .card-hover {
-        flex: 0 0 48%; /* Mantém dois cards por linha */
+        flex: 0 0 40%; /* Mantém dois cards por linha */
         }
         }
 
-        .container {
-          max-width: 1200px; /* Largura máxima para o contêiner */
+        .container-card {
+          display: flex;
+          flex-wrap: wrap; /* Permite que os cards quebrem para a linha seguinte */
+          justify-content: space-between; /* Espaçamento entre os cards */
+          max-width: 1200px; /* Largura máxima do contêiner */
           margin: 0 auto; /* Centraliza o contêiner */
           padding: 16px; /* Espaçamento interno */
         }
 
-        /* Estilo para dispositivos móveis */
+         /* Estilo para dispositivos móveis */
         @media (max-width: 600px) {
         .container {
+        padding: 8px; /* Reduz o padding em dispositivos móveis */
+        }
+    }
+
+        /* Estilo para dispositivos móveis */
+        @media (max-width: 600px) {
+        .container-card {
         padding: 8px; /* Reduz o padding em dispositivos móveis */
         }
     }
