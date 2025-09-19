@@ -10,10 +10,23 @@
 
         /* Para garantir que os cards se comportem bem em telas pequenas */
          @media (max-width: 600px) {
-        .card {
+        .card-hover {
         flex: 0 0 48%; /* Mantém dois cards por linha */
         }
         }
+
+        .container {
+          max-width: 1200px; /* Largura máxima para o contêiner */
+          margin: 0 auto; /* Centraliza o contêiner */
+          padding: 16px; /* Espaçamento interno */
+        }
+
+        /* Estilo para dispositivos móveis */
+        @media (max-width: 600px) {
+        .container {
+        padding: 8px; /* Reduz o padding em dispositivos móveis */
+        }
+
         .card-hover:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
